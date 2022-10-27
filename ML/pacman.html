@@ -1,0 +1,67 @@
+<!-- pacman game using javascript -->
+
+<script>
+var pacman = {
+  x: 0,
+  y: 0,
+  direction: 0,
+  speed: 1,
+  color: "yellow",
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+  }
+};
+
+var ghosts = [
+  {x: 100, y: 100, color: "red", speed: 1},
+  {x: 200, y: 100, color: "green", speed: 2},
+  {x: 300, y: 100, color: "blue", speed: 3}
+];
+
+for (var i = 0; i < ghosts.length; i++) {
+  ghosts[i].draw = function() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+  };
+}
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("webgl");
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  pacman.draw();
+  for (var i = 0; i < ghosts.length; i++) {
+    ghosts[i].draw();
+  }
+}
+
+function update() {
+  pacman.x += pacman
+}
+
+setInterval(draw, 30);
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+</html>
