@@ -140,6 +140,9 @@ span {
 	width: 100%;
 	height: 100%;
 }
+.footer{
+  align-items: center;
+}
 
 .chat {
 	height: 300px;
@@ -210,6 +213,7 @@ input {
 		margin: 10vw;
 	}
 }
+
       </style>
       <script>
 
@@ -245,7 +249,8 @@ const utterances = [
     ['are you available for job', "Are you available for job", 'are your free', 'are you open to work', "do you need job", "do you want job", "Are you free to work", "are you free to work"], //20
     ['your contact', "Your contact", "contact", "Contact", "how can i contact you","How can i contact you", 'your details', "Your details", "tell me about you", "Tell me about you", "Send me your details", "send me your details"], //21
     ['where do you live?', "where are you located", "location", "Where does rahul live", "Where do you live", "Where are you from", "where are your from", "Location", "Send me location"], // 22
-    ['Your resume', "Send me your resume", "your resume", "send me your resume", "Resume", "resume"] //23
+    ['Your resume', "Send me your resume", "your resume", "send me your resume", "Resume", "resume"], //23
+    ['k xa', "k cha", "Nepali ho", "nepali"]
 ];
  
 // Possible responses corresponding to triggers
@@ -262,7 +267,7 @@ const answers = [
   ],						//1
   [
     "Nothing much",
-    "I am at binary from rahu's server",
+    "I am at binary from rahul's server",
     "I don't know actually",
     "I am fixing 0's and 1's",
     "I am a bot so i never sleep",
@@ -291,7 +296,9 @@ const answers = [
     ["I work at a company called 'Eydean Inc' as a machine learning engineer and backend developer"], //19
     ['I am not available for job right now but you can contact me at- rahul.parajuli27@gmail.com'],
     ['You can contact me at- rahul.parajuli27@gmail.com, my phonenumber is - +9779813350184 and i live in baneshwor, kathmandu.'], //21
-    ['I live in wire and my creator lives in baneshwor, kathmandu'] //22
+    ['I live in wire and my creator lives in baneshwor, kathmandu'], //22
+    ['Ho ni', "Nepali honi", "thik xa!!!"]
+
 ];
  
 // For any other user input
@@ -381,13 +388,10 @@ function addChatEntry(input, product) {
   <script src="../assets/js/popup.js"></script>
   <script src="../assets/js/custom.js"></script>
        <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
+        <div class="footer">
+            <div class="Copyright">
               <p>Copyright © <a href="#">Rahul Parajuli</a> All rights reserved. 
-              
             </div>
-          </div>
         </div>
       </footer>
 </body>
