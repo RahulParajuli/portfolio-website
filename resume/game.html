@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id='the_box' data-zoom='1'>
+        <div class='item' data-org='0% 0%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='50% 0%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='100% 0%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='0% 50%'>
+          <div class='zoom_panel'></div>
+        </div>
+      
+      
+        <div id='intro_screen' class='item' data-org='50% 50%'>
+          <img src='assets/img/g2.jpg' />
+          <div class='intro_con'>
+      <!--       <h1>This will be an intro screen later on.</h1> -->
+          </div>
+          <div class='zoom_panel zoomed_in'></div>
+      
+        </div>
+      
+      
+        <div class='item' data-org='100% 50%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='0% 100%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='50% 100%'>
+          <div class='zoom_panel'></div>
+        </div>
+        <div class='item' data-org='100% 100%'>
+          <div class='zoom_panel'></div>
+        </div>
+      </div>
+
+
+</body>
+
+
+<style>
+
+html {
+  background:
+    /*     conic-gradient(red, blue), */
+    radial-gradient(at 50% 50%, #000 5%, transparent 5%),
+    conic-gradient(#111 53deg, #333 53deg 127deg, #444 127deg 233deg, #222 233deg 307deg, #111 307deg);
+  background-size: calc(33.33vh * 1.333) 33.33vh;
+  background-position: 50% 50%;
+  box-shadow: inset 0 0 200px 200px;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  background: black;
+  position: relative;
+  height: 100vh;
+  aspect-ratio: 4/3;
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+}
+
+#the_box {
+  height: 300vh;
+  aspect-ratio: 4/3;
+  position: absolute;
+  left: -100%;
+  top: -100vh;
+  transform: scale(1);
+  background: dimgray;
+  margin: 0 auto;
+}
+
+.item {
+  height: 100vh;
+  aspect-ratio: 4/3;
+  outline-offset: -1rem;
+  /*   outline: 1px solid red; */
+  float: left;
+  position: relative;
+  overflow: hidden;
+  background: 
+    conic-gradient(#111 53deg, #333 53deg 127deg, #444 127deg 233deg, #222 233deg 307deg, #111 307deg);
+}
+.item:before,
+.item:after,
+.project {
+  content: "";
+  width: calc(100% - 6rem);
+  height: calc(100% - 3rem);
+  position: absolute;
+  left: 3rem;
+  top: 1.5rem;
+  border-radius: 15% / 50%;
+  transform: scale(.9)
+}
+
+.project {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  /*   overflow-y: scroll; */
+}
+.project img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.project div {
+  background: rgba(0,0,0,.9);
+  color: lime;
+  font-family: monospace, system-ui;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0;
+  text-align: center;
+}
+.project * {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1rem;
+}
+.project div h3 {
+  margin-top: 0;
+}
+.project span {
+  font-size: 12px;
+  margin: 0 .25rem;
+}
+.project div a {
+  color: black;
+  background: lime;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.project p {
+  font-size: 14px;
+  max-width: 45ch;
+}
+
+.item:before {
+  background:    url('https://i.pinimg.com/originals/fa/6a/a8/fa6aa8b9f02691e42df56f1678e795fc.gif'),
+    #000;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0 0 0 1rem rgba(150,150,150,.25);
+  pointer-events: none;
+}
+.item:after {
+  background: 
+    linear-gradient(to bottom, rgba(0,255,0,.05), rgba(255,255,255,.15));
+  background-size: 100% .25rem;
+  box-shadow:
+    inset 0 0 0 .1rem dimgray,
+    inset 0 0 5rem black,
+    inset 0 0 .5rem 1rem rgba(150,150,150,.25);
+  animation: crt .2s linear infinite;
+  pointer-events: none;
+}
+
+iframe {
+  left: 2.8rem;
+  top: 1.4rem;
+}
+
+#intro_screen {
+  display: grid;
+  place-items: center;
+}
+#intro_screen:before {  
+  background: #222 !important;
+}
+#intro_screen:after {
+  background: 
+    linear-gradient(to bottom, rgba(0,255,0,.05), rgba(255,255,255,.15));
+  background-size: 100% .25rem;
+  box-shadow:
+    inset 0 0 0 .1rem dimgray,
+    inset 0 0 5rem black,
+    inset 0 0 .5rem 1rem rgba(150,150,150,.25);
+  animation: crt .2s linear infinite;
+}
+@keyframes crt {
+  100% { background-position: 0 -.25rem; }
+}
+
+#intro_screen img {
+  width: 50%;
+  position: absolute;
+  transform: translate(35%,-0%) rotate(-20deg) scaleX(-1);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 60%);
+  filter: brightness(1.25) contrast(2);
+  mix-blend-mode: multiply;
+}
+
+#intro_screen a {
+  display: inline-block;
+  width: fit-content;
+  color: lime;
+}
+.intro_con {
+  position: absolute;
+  left: 12.5%;
+  font-size: 2rem;
+  color: lime;
+  font-family: monospace;
+}
+
+.typewriter {
+  display: block;
+  position: relative !important;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  overflow: hidden; 
+/*   border-right: .5rem solid orange; */
+  white-space: nowrap;
+/*   animation:  */
+/*     typing 2.5s steps(40, end), */
+/*     blink-caret .75s step-end infinite; */
+  text-shadow: 0 0 10px lime;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: lime; }
+}
+
+.typewriter:nth-child(2),
+.typewriter:nth-child(4) {
+  margin-top: 1rem;
+}
+
+.typewriter:nth-child(8) {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.zoom_panel {
+  width: 10%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: 
+    linear-gradient(to bottom, #333, #222, #333);
+  box-shadow: 
+    inset 0 0 5px 5px black,
+    0 0 15px black;
+  position: absolute;
+  left: 2rem;
+  bottom: 1.5rem;
+  cursor: pointer;
+  transition: .5s linear;
+  transform: rotate(90deg);
+  z-index: 1000;
+}
+.zoom_panel:before {
+  content: '';
+  width: 100%;
+  height: 30%;
+  background: 
+    linear-gradient(to bottom, #222, #333, #222);
+  position: absolute;
+  left: 0%;
+  top: 35%;
+  border-radius: 3% / 50%;
+  box-shadow: 0 0 10px black;
+  /*   clip-path: polygon(0% 50%, 10% 0%, 100% 0%, 100% 100%, 10% 100%); */
+}
+.zoom_panel:after {
+  content: 'ZOOM';
+  width: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-family: system-ui;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #aaa;
+}
+
+.zoomed_in {
+  transform: rotate(0deg);
+}
+
+@media (max-width: calc(100vh * 1.333)) {
+  body {
+    width: 100vw;
+    aspect-ratio: unset;
+    overflow-y: scroll;
+  }
+  #the_box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: unset;
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: scale(1) !important;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  #intro_screen {
+    order: 1;
+  }
+  .item {
+    order: 2;
+  }
+
+  .intro_con {
+    transform-origin: 0% 50%;
+    transform: scale(.6)
+  }
+  .item {
+    width: 100vw;
+    height: calc(100vw * .75);
+    aspect-ratio: 4/3;
+  }
+
+  .item:before,
+  .item:after,
+  .project {
+    content: "";
+    width: calc(100%);
+    height: calc(100% - 3rem);
+    position: absolute;
+    left: 0;
+    top: 1.5rem;
+    border-radius: 15% / 50%;
+    transform: scale(.9)
+  }
+
+  .zoom_panel {
+    display: none;
+  }
+  .project div {
+    background: none;
+  }
+  .project span,
+  .project h3 {
+    display: none;
+  }
+  .project a {
+    box-shadow: 0 0 15px black;
+  }
+  
+  .typewriter:nth-child(4),
+  .typewriter:nth-child(5),
+  .typewriter:nth-child(6),
+  .typewriter:nth-child(7) {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-right: 1.25rem;
+  }
+
+  .typewriter:nth-child(8) {
+    display: none;
+  }
+}
+
+</style>
+
+<script>
+
+var interval = .1,
+    dataorg,
+    zoom_btns = document.querySelectorAll('.zoom_panel'),
+    z;
+
+zoom_btns.forEach(function(elm){
+  elm.addEventListener('click', autoZoom)
+})
+
+function autoZoom(e) {  
+  var x = e.clientX,
+      y = e.clientY,
+      el = document.elementFromPoint(x,y),
+      dataorg = el.parentElement.dataset.org,
+      z = Number(the_box.dataset.zoom)
+  // console.log(dataorg)
+
+  var xx = Number(dataorg.split('%')[0]),
+      yy = Number(dataorg.split('%')[1]),
+      ox,
+      oy
+  if(xx != 50) {
+    ox = xx < 50 ? 33.33 : -33.33  
+  } else {
+    ox = 0
+  }
+  if(yy != 50) {
+    oy = yy < 50 ? 33.33 : -33.33
+  } else {
+    oy = 0
+  }
+
+  z = z == 1 ? .333 : 1
+
+  if(z == 1) {
+    el.classList.add('zoomed_in')
+  } else {
+    el.classList.remove('zoomed_in')
+  }
+
+  the_box.dataset.zoom = z
+  the_box.style.transformOrigin = dataorg
+  the_box.style.transition = '1s linear'
+  the_box.style.transform = 'translate('+ox+'%,'+oy+'%) scale('+z+')'
+}
+
+var lines = [
+  "Hello, I am Rahul Parajuli.",
+  "I am a machine learning engineer and a backend developer",
+  "I do this portfolio as a interest",  
+  "<a href='https://github.com/rahulparajuli' target='_blank'>Github</a>",
+  "<a href='https://codepen.io/collection/XLOryx' target='_blank'>Games</a>",
+  "<a href='mailto:rahul.parajuli27@gmail.com'>Email Me</a>", 
+  "<a href='https://www.linkedin.com/in/rahul-parajuli-604924198/' target='_blank'>LinkedIn</a>",
+  "Try clicking the zoom knob.",
+]
+
+function addLines(){
+  var l = document.createElement('div')
+  l.className = 'typewriter'
+  intro_screen.querySelector('.intro_con').appendChild(l)
+
+  var box = document.querySelectorAll('.typewriter')[document.querySelectorAll('.typewriter').length - 1],
+      line;
+
+  if(lines[0].includes('<a ')){
+    line = lines[0]
+    box.innerHTML = line
+    lines.shift()
+    if(lines.length > 0) {
+      setTimeout(addLines, 250)
+    }  
+  } else {
+    line = lines[0].split('')
+    addLine = setInterval(function(){
+      if(line.length < 1) {
+        clearInterval(addLine)
+        lines.shift()
+        if(lines.length > 0) {
+          addLines()
+        }  
+      } else {          
+        box.innerHTML += line[0]
+        line.shift()         
+      }        
+    },75) 
+  }   
+}
+addLines()
+
+
+// function zoom(e) {  
+//   var x = e.clientX,
+//       y = e.clientY,
+//       el = document.elementFromPoint(x,y),
+//       dataorg = el.dataset.org,
+//       z = Number(the_box.dataset.zoom)
+
+//   if(e.deltaY > 0) {
+//     if(z - interval > .333) {
+//       z = z - interval  
+//     } else {
+//       z = .333
+//     }
+//   } else {
+//     if(z + interval < 1) {
+//       z = z + interval  
+//     } else {
+//       z = 1
+//     }
+//   }
+
+//   var xx = Number(dataorg.split('%')[0]),
+//       yy = Number(dataorg.split('%')[1]),
+//       ox,
+//       oy
+
+//   if(xx != 50) {
+//     ox = xx < 50 ? 33.33 : -33.33  
+//   } else {
+//     ox = 0
+//   }
+//   if(yy != 50) {
+//     oy = yy < 50 ? 33.33 : -33.33
+//   } else {
+//     oy = 0
+//   }
+
+//   if(z == .33) {
+//     the_box.style.transformOrigin = '50% 50%'  
+//     the_box.style.transform = 'translate('+0+'%,'+0+'%) scale('+z+')'
+//   } else {
+//     the_box.style.transformOrigin = dataorg
+//     the_box.style.transform = 'translate('+ox+'%,'+oy+'%) scale('+z+')'
+//   }
+
+//   the_box.style.transition = ''  
+//   the_box.dataset.zoom = z
+// }
+
+var projects = [
+  simplemoodboards = {
+    name: 'Simple Mood Boards',
+    tech: 'HTML, CSS, Javascript',
+    description: 'A simple online web-app to quickly generate mood boards. Includes drag and drop, auto-color palettes, and export options.',
+    image: 'images/simple-mood-boards.jpg',
+    url: 'http://simplemoodboards.com/'
+  },
+  gasguzzler = {
+    name: 'Gas Guzzler',
+    tech: 'HTML, CSS, Javascript, Photoshop, Illustrator',
+    description: 'A marketing landing page complete with playable mini-game. Desktop and mobile compatible.',
+    image: 'images/gas-guzzler.jpg',
+    url: 'https://specres.dealership-offers.com/Gas-Guzzler-22'
+  },
+  microvania = {
+    name: 'Microvania',
+    tech: 'HTML, CSS, Javascript',
+    description: 'Browser based platforming mini game. All assets are drawn with CSS. Includes keyboard controls.',
+    image: 'images/microvania.jpg',
+    url: 'https://codepen.io/kitjenson/full/yLzWMKa'
+  },
+  littlered = {
+    name: 'Mallow',
+    tech: 'HTML, CSS, Javascript, Illustrator',
+    description: 'This typing game comes with the added bonus of cooking the perfect marshmallow.',
+    image: 'images/mallow.jpg',
+    url: 'http://www.kitjenson.com/arcade/mallow/'
+  },
+  nothing = {
+    name: 'n',
+    description: 'n',
+    image: 'n',
+    url: 'n'
+  },
+  snowglobesanta = {
+    name: 'Snow Globe - Santa',
+    tech: 'HTML, CSS, Javascript',
+    description: 'This marketing landing page comes complete with interactive snow globe.',
+    image: 'images/snowglobe-santa.jpg',
+    url: 'https://specres.dealership-offers.com/Snow-Globe-21-Santa-Claus'
+  },
+  cornysavings = {
+    name: 'Corny Savings',
+    tech: 'HTML, CSS, Javascript, Illustrator',
+    description: 'This marketing landing page comes complete with playable corn-maze game. Desktop and mobile friendly. Fun CSS styled corn offer boxes as well.',
+    image: 'images/corny-savings.jpg',
+    url: 'https://specres.dealership-offers.com/Corny-Savings-22'
+  },
+  wshalloween = {
+    name: 'Halloween Word Search',
+    tech: 'HTML, CSS, JavaScript, Illustrator',
+    description: 'This marketing landing page comes complete with playable word search. Desktop and mobile friendly.',
+    image: 'images/word-search-halloween.jpg',
+    url: 'https://specres.dealership-offers.com/Word-Search-Halloween-22'
+  },
+  draganddroppuzzle = {
+    name: 'Simple Drag & Drop Puzzle',
+    tech: 'HTML, CSS, Javascript',
+    description: 'A straightforward puzzle game making use of drag and drop in the browser.',
+    image: 'images/simple-drag-and-drop-puzzle.jpg',
+    url: 'https://codepen.io/kitjenson/full/yLNEyXQ'
+  },
+]
+
+var items = document.querySelectorAll('.item')
+for(var i=0;i<items.length;i++) {
+  if(items[i].id != 'intro_screen') {
+    var p = document.createElement('div')
+    p.className = 'project'
+    var tech = projects[i].tech.split(', ').join('</span><span>')
+
+    p.innerHTML = `<div title='${projects[i].description}'>
+    <h3>${projects[i].name}</h3>
+    <span>${tech}</span>
+    <a href='${projects[i].url}' target='_blank'>See it ></a>
+    </div>`
+
+    var img = document.createElement('img')
+    img.src = 'http://www.kitjenson.com/'+projects[i].image
+
+    items[i].appendChild(p).appendChild(img)
+  }
+}
+
+// https://specres.dealership-offers.com/Snow-Globe-21-Santa-Claus
+
+</script>
+
+</html>
