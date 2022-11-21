@@ -88,7 +88,21 @@
       function darkMode() {
         var element = document.body;
         element.classList.toggle("dark-mode");
-        document.getElementById("#hero").style.backgroundImage = "url('resume/assets/img/morning.jpg')";
+        
+        if (document.getElementById("hero").style.backgroundImage === ""){
+        document.getElementById("hero").style.backgroundImage = "url('/resume/assets/img/space.jpg')";
+        document.getElementById("hero").style.color = "white"
+        }
+        else if (document.getElementById("hero").style.backgroundImage === 'url("/resume/assets/img/space.jpg")') {
+          // document..getElementById("hero").style.transition: 200ms;
+          document.getElementById("hero").style.backgroundImage = "url('resume/assets/img/morning.jpg')";
+        document.getElementById("hero").style.color = "black"
+        } else {
+          document.getElementById("hero").style.backgroundImage = "url('/resume/assets/img/space.jpg')";
+        document.getElementById("hero").style.color = "blue"
+
+        }
+
       }
       // function lightMode() {
         //   var element = document.body;
