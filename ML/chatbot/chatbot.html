@@ -38,7 +38,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="../ML.html" class="logo">
-                          <h1>Home</h1>  
+                          <h1>Projects</h1>  
                           <!-- <img src="../img/logo/R2.png" width="30px" height="30px" > -->
                         </a>
                         <style>
@@ -99,7 +99,31 @@
 
             <h1>welcome to rahul's website</h1>
             <h3>lets start talking</h3>
-           </div>
+            <h2> Try- </h2>
+          
+            <p>
+               1. Hello, Hi, Hey <br>
+               2. How are you <br>
+               3. what are you doing<br>
+               4. how old are you<br> 
+               5. who are you, Are you human or bot<br> 
+               6. who created you <br> 
+               7. Your name <br> 
+               8. bored <br> 
+               9. help me <br> 
+               8. tell me joke<br> 
+               9. what should i eat today<br> 
+               10. Rahul <br><br>
+               <h3> About me</h3>
+               1. your tech stack<br>
+               2. where do you work<br>
+               3. are you open to work <br>
+               4. how can i contact you<br>
+               5. where are your from<br>
+               6. Your resume <br>
+               7. Contact, Resume, Location, thanks, Fantastic
+            </p>
+          </div>
         <img src="../assets/images/200e8d139737079.6234b0487404d.gif" height="200vh", width="400vh" alt="Chatbot clipart">
          <div id="chat" class="chat">
           <div id="messages" class="messages">
@@ -138,15 +162,16 @@ span {
   justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 100%;
+	height: 80%;
 }
 .footer{
   align-items: center;
+  
 }
 
 .chat {
-	height: 300px;
-	width: 50vw;
+	height: 500px;
+	width: 25vw;
 	display: flex;
 	flex-direction: column;
   justify-content: center;
@@ -162,6 +187,7 @@ input {
 	padding: 15px; 
 	margin-left: auto;
 	border-radius: 10px; 
+  width: 24vw;
 }
 
 .messages {
@@ -209,9 +235,12 @@ input {
 		justify-content: flex-start;
 	}
 	.chat {
-		width: 75vw;
+		width: 70vw;
 		margin: 10vw;
 	}
+  .footer{
+    margin-top: 100px;
+  }
 }
 
       </style>
@@ -250,7 +279,7 @@ const utterances = [
     ['your contact', "Your contact", "contact", "Contact", "how can i contact you","How can i contact you", 'your details', "Your details", "tell me about you", "Tell me about you", "Send me your details", "send me your details"], //21
     ['where do you live?', "where are you located", "location", "Where does rahul live", "Where do you live", "Where are you from", "where are your from", "Location", "Send me location"], // 22
     ['Your resume', "Send me your resume", "your resume", "send me your resume", "Resume", "resume"], //23
-    ['k xa', "k cha", "Nepali ho", "nepali"]
+    ['k xa', "k cha", "Nepali ho", "nepali"] //24
 ];
  
 // Possible responses corresponding to triggers
@@ -293,10 +322,11 @@ const answers = [
     ["Yes?"],						//16
     ["Ok", "No problem", "Bye"]	,			//17
     ['I am a machine learning engineer, Data scientist and backend developer i am good with python, flask, fastAPI and some portion of frontend development[reactjs], and quite interested in blockchain technology.', "I am a machine learning engineer,backend developer i am good with python, flask, fastAPI and some portion of frontend development[reactjs], and quite interested in blockchain technology."], //18
-    ["I work at a company called 'Eydean Inc' as a machine learning engineer and backend developer"], //19
+    ["I work at a company called 'Tekkon Technologies Nepal' as a Backend AI engineer, Basically backend AI engineer handle machine learning tools, model building and also backend services, currently I am involved in OpenCV - vision based services."], //19
     ['I am not available for job right now but you can contact me at- rahul.parajuli27@gmail.com'],
     ['You can contact me at- rahul.parajuli27@gmail.com, my phonenumber is - +9779813350184 and i live in baneshwor, kathmandu.'], //21
     ['I live in wire and my creator lives in baneshwor, kathmandu'], //22
+    ["Here is the link for my resume page - https://www.rahulparajuli27.com.np/resume/assets/resume/Resume.pdf"],
     ['Ho ni', "Nepali honi", "thik xa!!!"]
 
 ];
